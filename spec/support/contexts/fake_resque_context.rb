@@ -16,6 +16,6 @@ RSpec.shared_context "fake resque" do
       page.zero? ? resque_queue : []
     end
 
-    allow(Resque).to receive(:workers).and_return(workers)
+    allow(Resque).to receive(:working).and_return(workers)
   end
 end

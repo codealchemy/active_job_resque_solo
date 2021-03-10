@@ -61,7 +61,7 @@ module ActiveJob
           def job_executing?(job)
             job_class, job_arguments = job(job)
 
-            is_executing = ::Resque.workers.any? do |worker|
+            is_executing = ::Resque.working.any? do |worker|
               processing = worker.processing
               next false if processing.blank?
 
